@@ -1,0 +1,144 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <!--CSS-->
+    <link rel="stylesheet" href="/style.css" />
+    <title>TaskGenie</title>
+  </head>
+  <body>
+    <!--Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" >Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!--Image URL-->
+            <div class="mb-3">
+              <label for="image_url" class="form-label">Image URL</label>
+              <input type="url" class="form-control" id="image_url" placeholder="http://example.com/image.png">
+            </div>
+            <!--Task Title-->
+            <div class="mb-3">
+                  <label for="task_title" class="form-label">Task Title</label>
+                  <input type="text" class="form-control" id="task_title" placeholder="Task Title">
+             </div>
+             <!--Task Type-->
+            <div class="mb-3">
+              <label for="task_type" class="form-label">Task Type</label>
+              <input type="text" class="form-control" id="task_type" placeholder="Task Type">
+           </div>
+           <!--Task Description-->
+           <div class="mb-3">
+            <label for="task_description" class="form-label">Task Description</label>
+            <textarea type="text" class="form-control" id="task_description" placeholder="Task Description" rows="5">Task Description</textarea>
+          </div>  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveChanges()">Add Task</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TaskGenie</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+          </ul>
+          <!--Add New Button-->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fas fa-plus"></i> Add New
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!--Search Bar-->
+    <div class="container"></div>
+        <section class="search_bar_container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="input-group mb-3 shadow-lg">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search Task"
+                            aria-label="Recipient's username"
+                            aria-describedby="basic-addon2"
+                        />
+                        <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--Card-->
+    <section>
+      <div class="row m-lg-3 task_container">
+        <div  class="col-md-6 col-lg-4">
+          <div class="card">
+            <div class="card-header d-flex justify-content-end gap-2">
+              
+              <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
+              <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+            </div>
+            <img src="https://www.focus2move.com/wp-content/uploads/2020/08/Tesla-Roadster-2020-1024-03.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <span class="badge bg-primary">New</span>
+            </div>
+            <div class="card-footer text-muted d-flex justify-content-end">
+              <button type="button" class="btn btn-outline-primary">Open Task</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--JavaScript initialisation-->
+    <script src="./index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"\
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
